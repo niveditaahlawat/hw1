@@ -47,6 +47,9 @@ public:
 	// The possible returns are: 1, 2, 3, 4, 5, 6, 7, 10, 11 and 12
 	int get_rank() const;
 
+	// returns the point value for each card (1/2 for 10, 11, 12)
+	int get_card_val() const;
+
 	// Compare rank of two cards. E.g: Eight<Jack is true.
 	// Assume Ace is always 1. 
 	// Useful if you want to sort the cards.
@@ -63,10 +66,8 @@ public:
 	// A vector of Cards
 	Hand();
 
-	// You decide what functions you'll need...
-
 private:
-	// You decide what fields you'll need...
+	std::vector<Card> vec_cards;
 };
 
 

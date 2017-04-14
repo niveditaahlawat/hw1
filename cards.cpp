@@ -2,22 +2,15 @@
 #include <cstdlib>
 #include <iostream>
 
-/*
-You might or might not need these two extra libraries
 #include <iomanip>
 #include <algorithm>
-*/
-
 
 /* *************************************************
 Card class
 ************************************************* */
 
 /*
-Default constructor for the Card class.
-It could give repeated cards. This is OK.
-Most variations of Blackjack are played with
-several decks of cards at the same time.
+Card() is the default constructor for the card class
 */
 Card::Card() {
 	int r = 1 + rand() % 4;
@@ -105,34 +98,150 @@ string Card::get_spanish_rank() const {
 	return rankName;
 }
 
-
-
 // Accessor: returns a string with the suit of the card in English 
-// This is just a stub! Modify it to your liking.
 string Card::get_english_suit() const {
-	return "";
+	string suitName;
+	switch (suit) {
+	case OROS:
+		suitName = "coins";
+		break;
+	case COPAS:
+		suitName = "cups";
+		break;
+	case ESPADAS:
+		suitName = "spades";
+		break;
+	case BASTOS:
+		suitName = "clubs";
+		break;
+	default: break;
+	}
+	return suitName;
 }
 
 // Accessor: returns a string with the rank of the card in English 
-// This is just a stub! Modify it to your liking.
 string Card::get_english_rank() const {
-	return "";
+	string rankName;
+	switch (rank) {
+	case AS:
+		rankName = "One";
+		break;
+	case DOS:
+		rankName = "Two";
+		break;
+	case TRES:
+		rankName = "Three";
+		break;
+	case CUATRO:
+		rankName = "Four";
+		break;
+	case CINCO:
+		rankName = "Five";
+		break;
+	case SEIS:
+		rankName = "Six";
+		break;
+	case SIETE:
+		rankName = "Seven";
+		break;
+	case SOTA:
+		rankName = "Jack";
+		break;
+	case CABALLO:
+		rankName = "Knight";
+		break;
+	case REY:
+		rankName = "King";
+		break;
+	default: break;
+	}
+	return rankName;
 }
-
-
 
 // Assigns a numerical value to card based on rank.
 // AS=1, DOS=2, ..., SIETE=7, SOTA=10, CABALLO=11, REY=12
 int Card::get_rank() const {
-	return static_cast<int>(rank) + 1;
+	int card_rank;
+	switch (rank) {
+	case AS:
+		card_rank = 1;
+		break;
+	case DOS:
+		card_rank = 2;
+		break;
+	case TRES:
+		card_rank = 3;
+		break;
+	case CUATRO:
+		card_rank = 4;
+		break;
+	case CINCO:
+		card_rank = 5;
+		break;
+	case SEIS:
+		card_rank = 6;
+		break;
+	case SIETE:
+		card_rank = 7;
+		break;
+	case SOTA:
+		card_rank = 10;
+		break;
+	case CABALLO:
+		card_rank = 11;
+		break;
+	case REY:
+		card_rank = 12;
+		break;
+	default: break;
+	}
+	return card_rank;
 }
+
+int Card::get_card_val() const {
+	double card_val;
+	switch (rank) {
+		case AS:
+			card_val = 1;
+			break;
+		case DOS:
+			card_val = 2;
+			break;
+		case TRES:
+			card_val = 3;
+			break;
+		case CUATRO:
+			card_val = 4;
+			break;
+		case CINCO:
+			card_val = 5;
+			break;
+		case SEIS:
+			card_val = 6;
+			break;
+		case SIETE:
+			card_val = 7;
+			break;
+		case SOTA:
+			card_val = 0.5;
+			break;
+		case CABALLO:
+			card_val = 0.5;
+			break;
+		case REY:
+			card_val = 0.5;
+			break;
+		default: break;
+	}
+	return card_val;
+}
+
 
 // Comparison operator for cards
 // Returns TRUE if card1 < card2
 bool Card::operator < (Card card2) const {
 	return rank < card2.rank;
 }
-
 
 
 /* *************************************************
