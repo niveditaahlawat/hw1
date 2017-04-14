@@ -58,19 +58,19 @@ class Hand {
 public:
 	// A vector of Cards
 	Hand();
+	int hand_val() const;
+	bool bust() const;
+	void add_card(Card c);
 
 private:
-	std::vector<Card> vec_cards;
+	std::vector <Card> vec_cards;
 };
 
 
 class Player {
 public:
 	// Constructor. 
-	//    Assigns initial amount of money
 	Player(int m);
-
-	// You decide what functions you'll need...
 
 private:
 	int money;

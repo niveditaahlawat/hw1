@@ -158,8 +158,7 @@ string Card::get_english_rank() const {
 	return rankName;
 }
 
-// Assigns a numerical value to card based on rank.
-// AS=1, DOS=2, ..., SIETE=7, SOTA=10, CABALLO=11, REY=12
+// Accessor: returns an int representing the rank of the card
 int Card::get_rank() const {
 	int card_rank;
 	switch (rank) {
@@ -198,6 +197,7 @@ int Card::get_rank() const {
 	return card_rank;
 }
 
+// Accessor: returns an int representing the point value of the card
 int Card::get_card_val() const {
 	double card_val;
 	switch (rank) {
@@ -240,7 +240,7 @@ int Card::get_card_val() const {
 // Comparison operator for cards
 // Returns TRUE if card1 < card2
 bool Card::operator < (Card card2) const {
-	return rank < card2.rank;
+	return get_rank() < card2.get_rank();
 }
 
 
@@ -249,9 +249,33 @@ Hand class
 ************************************************* */
 // Implemente the member functions of the Hand class here.
 
+Hand::Hand() { }
 
+// calculates the point values of the cards in the hand
+int Hand::hand_val() const {
+	double sum = 0.0;
+	for (auto x : vec_cards)
+		sum += x.get_card_val();
+	return sum;
+}
+
+// returns true if player has crossed 7.5 points
+bool Hand::bust() const {
+	if (hand_val() > 7.5)
+		return true;
+	else return false;
+}
+
+
+// adds a card to the hand
+void Hand::add_card(Card c) {
+	vec_cards.push_back(c);
+}
 
 /* *************************************************
 Player class
 ************************************************* */
 // Implemente the member functions of the Player class here.
+Player::Player(int m) {
+	money = m;
+}
