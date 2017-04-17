@@ -1,0 +1,21 @@
+Game number: 0	Money left: $100
+Bet: $30
+
+-----------------------------------------------
+
+Your cards: 
+	Siete de copas	Seven of cups
+
+Your total: 7. 
+
+Game number: 0	Money left: $130
+Bet: $130
+
+-----------------------------------------------
+
+Your cards: 
+	Tres de bastos	Three of clubs
+	Seis de oros	Six of coins
+
+Your total: 9. 
+

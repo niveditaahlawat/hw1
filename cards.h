@@ -64,7 +64,7 @@ public:
 	bool bust() const;
 	void add_card(Card c);
 	void print_hand() const;
-	//void file_print_hand(ostream& fout) const;
+	void file_print_hand(ostream& fout) const;
 
 private:
 	std::multiset <Card> vec_cards;
