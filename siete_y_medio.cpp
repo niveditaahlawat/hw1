@@ -14,6 +14,7 @@ int main() {
 	srand((int)time(0));			// seed random #
 	ofstream fout;					// file output for game log
 	fout.open("gamelog.txt");
+	int game_number;
 
 	bool dealer_out = false;
 
@@ -35,7 +36,8 @@ int main() {
 			std::cout << "You cannot bet more than $" << player_money << ". Please input a valid bet: " << std::endl;
 			std::cin >> bet;
 		}
-	
+		fout << "Game number: " << game_number << "\tMoney left: $" << player_money << "\nBet: $" << bet << "\n" << "\n";
+
 		Card player_card;
 		player_hand.add_card(player_card);
 
@@ -76,6 +78,8 @@ int main() {
 			}
 
 		}
+		fout << "Your cards: " << "\n" << "\t" << player_hand.print_hand() << "\n";
+
 		while (!dealer_out) {
 			while (dealer_hand.hand_val() < 5.5) {
 				Card dealer_card;
