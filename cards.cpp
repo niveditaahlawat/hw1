@@ -246,7 +246,11 @@ void Card::print_card() const {
 // Comparison operator for cards
 // Returns TRUE if card1 < card2
 bool Card::operator < (Card card2) const {
-	return get_rank() < card2.get_rank();
+	if (get_rank() < card2.get_rank())
+		return true;
+	else if (get_rank() == card2.get_rank())
+		return (get_english_suit() < card2.get_english_suit());
+	else return false;
 }
 
 

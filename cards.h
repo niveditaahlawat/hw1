@@ -66,7 +66,7 @@ public:
 	void print_hand() const;
 
 private:
-	std::set <Card> vec_cards;
+	std::multiset <Card> vec_cards;
 };
 
 

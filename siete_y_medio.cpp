@@ -6,8 +6,6 @@
 #include <cstdlib>
 #include "cards.h"
 
-// is git desktop working?? check!
-
 // Global constants (if any)
 // Non member functions declarations (if any)
 // Non member functions implementations (if any)
