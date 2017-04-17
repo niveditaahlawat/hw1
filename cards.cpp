@@ -198,44 +198,50 @@ int Card::get_rank() const {
 }
 
 // Accessor: returns an int representing the point value of the card
-int Card::get_card_val() const {
+double Card::get_card_val() const {
 	double card_val;
 	switch (rank) {
-		case AS:
-			card_val = 1;
-			break;
-		case DOS:
-			card_val = 2;
-			break;
-		case TRES:
-			card_val = 3;
-			break;
-		case CUATRO:
-			card_val = 4;
-			break;
-		case CINCO:
-			card_val = 5;
-			break;
-		case SEIS:
-			card_val = 6;
-			break;
-		case SIETE:
-			card_val = 7;
-			break;
-		case SOTA:
-			card_val = 0.5;
-			break;
-		case CABALLO:
-			card_val = 0.5;
-			break;
-		case REY:
-			card_val = 0.5;
-			break;
-		default: break;
+	case AS:
+		card_val = 1;
+		break;
+	case DOS:
+		card_val = 2;
+		break;
+	case TRES:
+		card_val = 3;
+		break;
+	case CUATRO:
+		card_val = 4;
+		break;
+	case CINCO:
+		card_val = 5;
+		break;
+	case SEIS:
+		card_val = 6;
+		break;
+	case SIETE:
+		card_val = 7;
+		break;
+	case SOTA:
+		card_val = 0.5;
+		break;
+	case CABALLO:
+		card_val = 0.5;
+		break;
+	case REY:
+		card_val = 0.5;
+		break;
+	default: break;
 	}
 	return card_val;
 }
 
+void Card::print_card() const {
+	std::cout << "New card:" << std::endl;
+	std::cout << "\t" << get_spanish_rank() << " de " << get_spanish_suit();
+	std::cout << "\t" << get_english_rank() << " of " << get_english_suit();
+	std::cout << std::endl;
+}
 
 // Comparison operator for cards
 // Returns TRUE if card1 < card2
@@ -247,12 +253,11 @@ bool Card::operator < (Card card2) const {
 /* *************************************************
 Hand class
 ************************************************* */
-// Implemente the member functions of the Hand class here.
 
 Hand::Hand() { }
 
 // calculates the point values of the cards in the hand
-int Hand::hand_val() const {
+double Hand::hand_val() const {
 	double sum = 0.0;
 	for (auto x : vec_cards)
 		sum += x.get_card_val();
@@ -266,16 +271,27 @@ bool Hand::bust() const {
 	else return false;
 }
 
-
 // adds a card to the hand
 void Hand::add_card(Card c) {
-	vec_cards.push_back(c);
+	vec_cards.insert(c);
 }
+
+void Hand::print_hand() const {
+	for (auto x : vec_cards) {
+		std::cout << "\t" << x.get_spanish_rank() << " de " << x.get_spanish_suit();
+		std::cout << "\t" << x.get_english_rank() << " of " << x.get_english_suit();
+		std::cout << std::endl;
+	}
+}
+
 
 /* *************************************************
 Player class
 ************************************************* */
-// Implemente the member functions of the Player class here.
 Player::Player(int m) {
 	money = m;
+}
+
+int Player::get_money() {
+	return money;
 }

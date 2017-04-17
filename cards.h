@@ -5,7 +5,7 @@ Interface of a simple Card class
 ************************************* */
 
 #include <string>
-#include <vector>
+#include <set>
 #include <fstream>
 
 #ifndef CARDS_H
@@ -41,7 +41,9 @@ public:
 	int get_rank() const;
 
 	// returns the point value for each card (1/2 for 10, 11, 12)
-	int get_card_val() const;
+	double get_card_val() const;
+
+	void print_card() const;
 
 	// Compare rank of two cards. E.g: Eight<Jack is true.
 	// Assume Ace is always 1. 
@@ -58,12 +60,13 @@ class Hand {
 public:
 	// A vector of Cards
 	Hand();
-	int hand_val() const;
+	double hand_val() const;
 	bool bust() const;
 	void add_card(Card c);
+	void print_hand() const;
 
 private:
-	std::vector <Card> vec_cards;
+	std::set <Card> vec_cards;
 };
 
 
@@ -71,6 +74,7 @@ class Player {
 public:
 	// Constructor. 
 	Player(int m);
+	int get_money();
 
 private:
 	int money;
