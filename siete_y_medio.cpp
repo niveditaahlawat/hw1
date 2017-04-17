@@ -23,7 +23,7 @@ int main() {
 	int bet = 0;
 	char answer;
 
-	while (player_money > 0) {
+	while (player_money > 0 && player_money < 900) {
 		play_again = true;
 		dealer_out = false;
 		Hand player_hand;
@@ -85,13 +85,8 @@ int main() {
 			dealer_hand.print_hand();
 			std::cout << "The dealer's total is " << dealer_hand.hand_val() << "." << std::endl;
 			std::cout << std::endl;
-			// if both player and dealer bust
-			if (player_hand.bust() && dealer_hand.bust()) {
-				player_money -= bet;
-				std::cout << "You busted! You lose $" << bet << "." << std::endl << std::endl;
-			}
 			// if player busts
-			else if (player_hand.bust()) {
+			if (player_hand.bust()) {
 				player_money -= bet;
 				std::cout << "You busted! You lose $" << bet << "." << std::endl << std::endl;
 			}
@@ -116,6 +111,18 @@ int main() {
 			}
 			dealer_out = true;
 		}
+	}
+	if (player_money >= 900) {
+		std::cout << std::endl << "You win $" << player_money << "." << std::endl;
+		std::cout << "Congratulations. You beat the casino!" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Bye!";
+	}
+	if (player_money <= 0) {
+		std::cout << std::endl << "You have $" << player_money << ". GAME OVER!" << std::endl;
+		std::cout << "Come back when you have more money." << std::endl;
+		std::cout << std::endl;
+		std::cout << "Bye!";
 	}
 
 	fout.close();
