@@ -289,6 +289,15 @@ void Hand::print_hand() const {
 	}
 }
 
+/*
+void Hand::file_print_hand(ostream& fout) const {
+	for (auto x : vec_cards) {
+		fout << "\t" << x.get_spanish_rank() << " de " << x.get_spanish_suit();
+		fout << "\t" << x.get_english_rank() << " of " << x.get_english_suit();
+		fout << std::endl;
+	}
+}
+*/
 
 /* *************************************************
 Player class
