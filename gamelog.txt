@@ -1,17 +1,51 @@
 -----------------------------------------------
-Game number: 0Money left: $100
-Bet: $50
+Game number: 0		Money left: $100
+Bet: $30
 
 
 Your cards: 
-	Cinco de bastos		(Five of clubs).
-	Sota de espadas		(Jack of spades).
-	Caballo de oros		(Knight of coins).
+	Siete de bastos		(Seven of clubs).
 
-Your total: 6. 
+Your total: 7. 
 
 Dealer's cards: 
-	Seis de bastos		(Six of clubs).
+	Tres de copas		(Three of cups).
+	Cuatro de copas		(Four of cups).
 
-Dealer's total: 6. 
+Dealer's total: 7. 
+
+-----------------------------------------------
+Game number: 0		Money left: $100
+Bet: $40
+
+
+Your cards: 
+	Dos de bastos		(Two of clubs).
+	Cinco de espadas		(Five of spades).
+
+Your total: 7. 
+
+Dealer's cards: 
+	Dos de copas		(Two of cups).
+	Tres de oros		(Three of coins).
+	Cuatro de oros		(Four of coins).
+
+Dealer's total: 9. 
+
+-----------------------------------------------
+Game number: 0		Money left: $140
+Bet: $140
+
+
+Your cards: 
+	Tres de bastos		(Three of clubs).
+	Cinco de espadas		(Five of spades).
+
+Your total: 8. 
+
+Dealer's cards: 
+	Cuatro de bastos		(Four of clubs).
+	Cinco de oros		(Five of coins).
+
+Dealer's total: 9. 
 
