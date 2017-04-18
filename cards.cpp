@@ -251,7 +251,6 @@ bool Card::operator < (Card card2) const {
 	else if (get_rank() == card2.get_rank())
 		return (get_english_suit() < card2.get_english_suit());
 	else return false;
-
 }
 
 

@@ -84,7 +84,6 @@ int main() {
 					play_again = false;
 				}
 			}
-
 		}
 
 		// print to gamelog.txt
@@ -114,8 +113,8 @@ int main() {
 			
 			// if player busts
 			if (player_hand.bust()) {
-				player_money -= bet;
 				std::cout << "You busted! You lose $" << bet << "." << std::endl << std::endl;
+				player_money -= bet;
 			}
 			// if dealer busts
 			else if (dealer_hand.bust()) {
