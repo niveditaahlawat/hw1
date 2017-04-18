@@ -20,7 +20,7 @@ std::ostream& operator << (std::ostream& fout, const Hand& user_hand) {
 int main() {
 	srand((int)time(0));			// seed random #
 	ofstream fout;					// file output for game log
-	fout.open("gamelog.txt");
+	fout.open("gamelog.txt");		// open the gamelog.txt file
 	int game_number = 0;
 
 	bool dealer_out = false;
@@ -138,6 +138,7 @@ int main() {
 			dealer_out = true;
 		}
 	}
+
 	if (player_money >= 900) {
 		std::cout << std::endl << "You win $" << player_money << "." << std::endl;
 		std::cout << "Congratulations. You beat the casino!" << std::endl;
@@ -152,6 +153,6 @@ int main() {
 		std::cout << std::endl;
 	}
 
-	fout.close();
+	fout.close();		// close the gamelog.txt file
 	return 0;
 }
