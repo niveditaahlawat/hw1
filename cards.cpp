@@ -296,14 +296,3 @@ void Hand::file_print_hand(ostream& fout) const {
 		fout << std::endl;
 	}
 }
-
-/* *************************************************
-Player class
-************************************************* */
-Player::Player(int m) {
-	money = m;
-}
-
-int Player::get_money() {
-	return money;
-}

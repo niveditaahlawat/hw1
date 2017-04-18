@@ -70,16 +70,4 @@ private:
 	std::multiset <Card> vec_cards;
 };
 
-
-class Player {
-public:
-	// Constructor. 
-	Player(int m);
-	int get_money();
-
-private:
-	int money;
-	// You decide what extra fields (if any) you'll need...
-};
-
 #endif

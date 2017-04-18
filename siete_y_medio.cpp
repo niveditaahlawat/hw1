@@ -30,7 +30,7 @@ int main() {
 	int bet = 0;
 	char answer;
 
-	while (player_money > 0 && player_money < 900) {
+	while (player_money > 0 && player_money < 1000) {
 		play_again = true;
 		dealer_out = false;
 		Hand player_hand;
