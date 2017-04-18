@@ -10,13 +10,6 @@
 // Non member functions declarations (if any)
 // Non member functions implementations (if any)
 
-/*
-std::ostream& operator << (std::ostream& fout, const Hand& user_hand) {
-	user_hand.print_hand();
-	return fout;
-}
-*/
-
 int main() {
 	srand((int)time(0));			// seed random #
 	ofstream fout;					// file output for game log
@@ -64,6 +57,8 @@ int main() {
 			Card player_card;
 			player_hand.add_card(player_card);
 
+			std::cout << "New card:" << std::endl;
+			std::cout << "\t";
 			player_card.print_card();
 			std::cout << std::endl;
 
@@ -95,14 +90,25 @@ int main() {
 		fout << std::endl;
 
 		while (!dealer_out) {
+			Card dealer_card;
+			dealer_hand.add_card(dealer_card);
+
+			std::cout << "Dealer's cards: ";
+			dealer_card.print_card();
+			std::cout << "The dealer's total is " << dealer_hand.hand_val() << "." << std::endl;
+			std::cout << std::endl;
+
 			while (dealer_hand.hand_val() < 5.5) {
 				Card dealer_card;
 				dealer_hand.add_card(dealer_card);
+				std::cout << "New card: " << std::endl;
+				dealer_card.print_card();
+				std::cout << std::endl;
+				std::cout << "Dealer's cards: " << std::endl;
+				dealer_hand.print_hand();
+				std::cout << "The dealer's total is " << dealer_hand.hand_val() << "." << std::endl;
+				std::cout << std::endl;
 			}
-			std::cout << "Dealer's cards: " << std::endl;
-			dealer_hand.print_hand();
-			std::cout << "The dealer's total is " << dealer_hand.hand_val() << "." << std::endl;
-			std::cout << std::endl;
 			
 			// print to gamelog.txt
 			fout << "Dealer's cards: " << "\n";

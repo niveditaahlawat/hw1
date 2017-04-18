@@ -237,9 +237,8 @@ double Card::get_card_val() const {
 }
 
 void Card::print_card() const {
-	std::cout << "New card:" << std::endl;
-	std::cout << "\t" << get_spanish_rank() << " de " << get_spanish_suit();
-	std::cout << "\t\t" << "(" << get_english_rank() << " of " << get_english_suit() << ").";
+	std::cout << get_spanish_rank() << " de " << get_spanish_suit();
+	std::cout << "\t" << "(" << get_english_rank() << " of " << get_english_suit() << ").";
 	std::cout << std::endl;
 }
 
