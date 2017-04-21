@@ -6,10 +6,6 @@
 #include <cstdlib>
 #include "cards.h"
 
-// Global constants (if any)
-// Non member functions declarations (if any)
-// Non member functions implementations (if any)
-
 int main() {
 	srand((int)time(0));			// seed random #
 	ofstream fout;					// file output for game log
@@ -17,14 +13,14 @@ int main() {
 	int game_number = 0;
 
 	bool dealer_out = false;
-	bool play_again = true;			// user wants to play again or draw another card
+	bool player_alive = true;		// user wants to play again or draw another card
 
 	int player_money = 100;
 	int bet = 0;
 	char answer;
 
 	while (player_money > 0 && player_money < 1000) {
-		play_again = true;
+		player_alive = true;
 		dealer_out = false;
 		Hand player_hand;
 		Hand dealer_hand;
@@ -50,12 +46,12 @@ int main() {
 		std::cout << "Your total is " << player_hand.hand_val() << ". Do you want another card (y/n)? ";
 		std::cin >> answer;
 		if (answer == 'y') {
-			play_again = true;
+			player_alive = true;
 		}
 		else if (answer == 'n') {
-			play_again = false;
+			player_alive = false;
 		}
-		while (play_again) {
+		while (player_alive) {
 			Card player_card;
 			player_hand.add_card(player_card);
 
@@ -68,16 +64,16 @@ int main() {
 
 			if (player_hand.hand_val() > 7.5) {
 				std::cout << "Your total is " << player_hand.hand_val() << std::endl;
-				play_again = false;
+				player_alive = false;
 			}
 			else {
 				std::cout << "Your total is " << player_hand.hand_val() << ". Do you want another card (y/n)? ";
 				std::cin >> answer;
 				if (answer == 'y') {
-					play_again = true;
+					player_alive = true;
 				}
 				else if (answer == 'n') {
-					play_again = false;
+					player_alive = false;
 				}
 			}
 		}
@@ -147,12 +143,15 @@ int main() {
 		}
 	}
 
+	// console output if player wins
 	if (player_money >= 900) {
 		std::cout << std::endl << "You win $" << player_money << "." << std::endl;
 		std::cout << "Congratulations. You beat the casino!" << std::endl;
 		std::cout << std::endl;
 		std::cout << "Bye!";
 	}
+
+	// console output if player loses
 	if (player_money <= 0) {
 		std::cout << std::endl << "You have $" << player_money << ". GAME OVER!" << std::endl;
 		std::cout << "Come back when you have more money." << std::endl;

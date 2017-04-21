@@ -9,9 +9,7 @@
 Card class
 ************************************************* */
 
-/*
-Card() is the default constructor for the card class
-*/
+// default constructor for Card object
 Card::Card() {
 	int r = 1 + rand() % 4;
 	switch (r) {
@@ -259,6 +257,7 @@ bool Card::operator < (Card card2) const {
 Hand class
 ************************************************* */
 
+// default constructor for Hand object
 Hand::Hand() { }
 
 // calculates the point values of the cards in the hand
@@ -281,6 +280,7 @@ void Hand::add_card(Card c) {
 	vec_cards.insert(c);
 }
 
+// prints all the cards in the player's hand to the console
 void Hand::print_hand() const {
 	for (auto x : vec_cards) {
 		std::cout.width(15);
@@ -291,6 +291,7 @@ void Hand::print_hand() const {
 	}
 }
 
+// prints all the cards in the player's hand to the file
 void Hand::file_print_hand(ostream& fout) const {
 	for (auto x : vec_cards) {
 		fout.width(15);
