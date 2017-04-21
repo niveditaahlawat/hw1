@@ -235,10 +235,9 @@ double Card::get_card_val() const {
 }
 
 void Card::print_card() const {
-	std::cout.width(15);
-	std::cout << get_spanish_rank() << " de " << get_spanish_suit();
-	std::cout.width(15);
-	std::cout << "(" << get_english_rank() << " of " << get_english_suit() << ").";
+	std::cout << std::right
+	<< std::setw(15) << get_spanish_rank() << " de " << get_spanish_suit()
+	<< std::setw(5) << "(" << get_english_rank() << " of " << get_english_suit() << ").";
 	std::cout << std::endl;
 }
 
@@ -251,7 +250,6 @@ bool Card::operator < (Card card2) const {
 		return (get_english_suit() < card2.get_english_suit());
 	else return false;
 }
-
 
 /* *************************************************
 Hand class
@@ -280,24 +278,23 @@ void Hand::add_card(Card c) {
 	vec_cards.insert(c);
 }
 
+//std::cout << std::right
+//<< std::setw(15) << get_spanish_rank() << " de " << get_spanish_suit()
+//<< std::setw(10) << "(" << get_english_rank() << " of " << get_english_suit() << ").";
+
 // prints all the cards in the player's hand to the console
 void Hand::print_hand() const {
 	for (auto x : vec_cards) {
-		std::cout.width(15);
-		std::cout << x.get_spanish_rank() << " de " << x.get_spanish_suit();
-		std::cout.width(15);
-		std::cout << "(" << x.get_english_rank() << " of " << x.get_english_suit() << ").";
-		std::cout << std::endl;
+		x.print_card();
 	}
 }
 
 // prints all the cards in the player's hand to the file
 void Hand::file_print_hand(ostream& fout) const {
 	for (auto x : vec_cards) {
-		fout.width(15);
-		fout << x.get_spanish_rank() << " de " << x.get_spanish_suit();
-		fout.width(15);
-		fout << "(" << x.get_english_rank() << " of " << x.get_english_suit() << ").";
+		fout << std::right
+			<< std::setw(15) << x.get_spanish_rank() << " de " << x.get_spanish_suit()
+			<< std::setw(5) << "(" << x.get_english_rank() << " of " << x.get_english_suit() << ").";
 		fout << std::endl;
 	}
 }
