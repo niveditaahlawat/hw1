@@ -37,7 +37,9 @@ int main() {
 		}
 
 		fout << "-----------------------------------------------" << std::endl;
-		fout << "Game number: " << game_number << "\t\t" << "Money left: $" << player_money << "\nBet: $" << bet << "\n";
+		fout << "Game number: " << game_number;
+		fout.width(15);
+		fout << "Money left: $" << player_money << "\nBet: $" << bet << "\n";
 
 		Card player_card;
 		player_hand.add_card(player_card);
@@ -58,7 +60,6 @@ int main() {
 			player_hand.add_card(player_card);
 
 			std::cout << "New card:" << std::endl;
-			std::cout << "\t";
 			player_card.print_card();
 			std::cout << std::endl;
 
@@ -94,6 +95,7 @@ int main() {
 			dealer_hand.add_card(dealer_card);
 
 			std::cout << "Dealer's cards: ";
+			std::cout << std::endl;
 			dealer_card.print_card();
 			std::cout << "The dealer's total is " << dealer_hand.hand_val() << "." << std::endl;
 			std::cout << std::endl;

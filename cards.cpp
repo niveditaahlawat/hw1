@@ -237,8 +237,10 @@ double Card::get_card_val() const {
 }
 
 void Card::print_card() const {
+	std::cout.width(15);
 	std::cout << get_spanish_rank() << " de " << get_spanish_suit();
-	std::cout << "\t" << "(" << get_english_rank() << " of " << get_english_suit() << ").";
+	std::cout.width(15);
+	std::cout << "(" << get_english_rank() << " of " << get_english_suit() << ").";
 	std::cout << std::endl;
 }
 
@@ -281,16 +283,20 @@ void Hand::add_card(Card c) {
 
 void Hand::print_hand() const {
 	for (auto x : vec_cards) {
-		std::cout << "\t" << x.get_spanish_rank() << " de " << x.get_spanish_suit();
-		std::cout << "\t\t" << "(" << x.get_english_rank() << " of " << x.get_english_suit() << ").";
+		std::cout.width(15);
+		std::cout << x.get_spanish_rank() << " de " << x.get_spanish_suit();
+		std::cout.width(15);
+		std::cout << "(" << x.get_english_rank() << " of " << x.get_english_suit() << ").";
 		std::cout << std::endl;
 	}
 }
 
 void Hand::file_print_hand(ostream& fout) const {
 	for (auto x : vec_cards) {
-		fout << "\t" << x.get_spanish_rank() << " de " << x.get_spanish_suit();
-		fout << "\t\t" << "(" << x.get_english_rank() << " of " << x.get_english_suit() << ").";
+		fout.width(15);
+		fout << x.get_spanish_rank() << " de " << x.get_spanish_suit();
+		fout.width(15);
+		fout << "(" << x.get_english_rank() << " of " << x.get_english_suit() << ").";
 		fout << std::endl;
 	}
 }

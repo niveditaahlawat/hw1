@@ -1,5 +1,5 @@
 /* *************************************
-Ricardo Salazar, February 26, 2015
+Nivedita Ahlawat, April 21, 2016
 
 Interface of a simple Card class
 ************************************* */
